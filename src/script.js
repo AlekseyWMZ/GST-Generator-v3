@@ -16,7 +16,7 @@ const gst = document.getElementById('gst-number')
 console.log(customPanInput)
 
 function toggleCustomPanInput() {
-  if (customPanInput.hidden) {
+  if (customPanInput.hidden ) {
     customPanInput.removeAttribute('hidden')
   } else {
     customPanInput.setAttribute('hidden', true)
@@ -50,7 +50,12 @@ copyButton.forEach(button => {
 
 
 generateButton.onclick = function() {
-  console.log(customPanInput.value)
+  let panInputValue = customPanInput.value
+  
+  // if (customPanCheckbox.) {
+  // }
+    
+  
   const { gst, pin, state } = generateGst(customPanInput.value, stateSelect.value)
 
 
