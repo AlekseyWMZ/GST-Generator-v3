@@ -1,16 +1,23 @@
-import { faker } from '@faker-js/faker'
+import {faker} from '@faker-js/faker'
+
 function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }
-
-
+function getRandomPan() {
+  return faker.random.alpha({count: 5, casing: 'upper'}) + faker.random.numeric(4) + faker.random.alpha({
+    count: 1, casing: 'upper'
+  })
+}
 
 function generatePAN(customPAN) {
-  return customPAN || faker.random.alpha({ count: 5, casing: 'upper' }) + faker.random.numeric(4) + faker.random.alpha({ count: 1, casing: 'upper' })
+  if (customPAN === '' || customPAN === undefined) {
+    return getRandomPan()
+  }
+  return customPAN || getRandomPan()
 }
 
 
-export const codingSeries = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+export const codingSeries = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 export const stateNumbers = {
   '37': 'Andhra Pradesh',
   '12': 'Arunachal Pradesh',
@@ -44,7 +51,8 @@ export const stateNumbers = {
   '35': 'Andaman and Nicobar Islands',
   '31': 'Chandigarh',
   '04': 'Dadra and Nagar Haveli',
-  '07': 'Delhi',
+  '07': 'Delhi'
+
 }
 export const pinList = {
   'Andhra Pradesh': ['515001', '515621', '515124'],
@@ -79,4 +87,4 @@ export const pinList = {
 }
 
 
-export { getRandomInt, generatePAN };
+export {getRandomInt, generatePAN}

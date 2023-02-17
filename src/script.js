@@ -1,47 +1,59 @@
-import {generateGst} from './gst/gst-generator.js'
-import {stateNumbers} from './gst/helpers'
+import { generateGst } from './gst/gst-generator.js'
+import { generatePAN } from './gst/helpers.js'
 
+// const customPan = document.querySelector('.custom-pan')
 const customPanCheckbox = document.querySelector('.custom-pan #pan-checkbox')
 const customPanInput = document.querySelector('.custom-pan #pan-input')
+
 const stateCheckbox = document.querySelector('.state #state-checkbox')
 const stateSelect = document.querySelector('.state #state-select')
 
-const generateButton = document.getElementById('generate-button')
-
-
 const gstHistory = document.getElementById('gst-history')
-const copyButton = document.querySelectorAll('button .copy-pin')
 const gst = document.getElementById('gst-number')
 
-console.log(customPanInput)
+const generateButton = document.getElementById('generate-button')
+const copyButton = document.querySelectorAll('button .copy-pin')
 
-function toggleCustomPanInput() {
-  if (customPanInput.hidden ) {
-    customPanInput.removeAttribute('hidden')
+customPanCheckbox.addEventListener('click', togglePanInput)
+stateCheckbox.addEventListener('click', toggleStateSelect)
+
+
+function togglePanInput() {
+  if (customPanCheckbox.checked===true) {
+    customPanInput.removeAttribute('disabled')
+    customPanInput.focus()
+
   } else {
-    customPanInput.setAttribute('hidden', true)
+    customPanInput.toggleAttribute('disabled')
+  }
+
+}
+function toggleStateSelect() {
+  if (stateCheckbox.checked===true) {
+    stateSelect.removeAttribute('disabled')
+    stateSelect.focus()
+  }
+  else {
+    stateSelect.toggleAttribute('disabled')
+    stateSelect.value = '00'
   }
 }
 
-function toggleStateSelect() {
-  if (stateSelect.hidden) {
-    stateSelect.removeAttribute('hidden')
-  } else {
-    stateSelect.setAttribute('hidden', true)
+function validatePan(customPanInput) {
+  if (customPanInput.length===10) {
+    customPanInput.addEventListener('input', function() {
+      return /^\w{5}\d{4}\w$/.test(customPanInput.value) ? customPanInput.classList.remove('invalid')
+                                                         : customPanInput.setAttribute('invalid', 'true')
+    })
   }
 }
 
 function copyGst() {
-  console.log('copy')
-
-  console.log(gst)
   gst.select()
   gst.copy()
 }
 
 
-customPanCheckbox.addEventListener('click', toggleCustomPanInput)
-stateCheckbox.addEventListener('click', toggleStateSelect)
 
 
 copyButton.forEach(button => {
@@ -50,13 +62,25 @@ copyButton.forEach(button => {
 
 
 generateButton.onclick = function() {
-  let panInputValue = customPanInput.value
-  
-  // if (customPanCheckbox.) {
-  // }
-    
-  
-  const { gst, pin, state } = generateGst(customPanInput.value, stateSelect.value)
+  let panInputValue
+  let stateSelectValue
+
+  if (customPanCheckbox.checked===false) {
+    panInputValue = ''
+  }
+  else {
+    panInputValue = customPanInput.value
+  }
+
+  if (stateCheckbox.checked===false) {
+    stateSelectValue = '00'
+  }
+  else {
+    stateSelectValue = stateSelect.value
+  }
+
+
+  const {gst, pin, state} = generateGst(panInputValue, stateSelectValue)
 
 
   gstHistory.innerHTML += `
@@ -73,7 +97,7 @@ generateButton.onclick = function() {
         `
 
 
-  let i;
+  let i
   for (i = 0; i < gstHistory.length; i++) {
     gstHistory[i].onclick = function() {
       this.parentNode.copy()
@@ -81,9 +105,7 @@ generateButton.onclick = function() {
   }
 
 
-
-
   // newGstInput.value = generateGst();
 }
 
-export { toggleCustomPanInput }
+export { toggleStateSelect, validatePan, copyGst}
