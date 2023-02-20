@@ -1,5 +1,5 @@
 {
-  "name": "listbox-example",
+  "name": "gst-generator",
   "version": "0.13.1",
   "scripts": {
     "dev": "vite",
@@ -31,8 +31,5 @@
   "private": true,
   "publishConfig": {
     "access": "restricted"
-  },
-  "type": "module"
-
-
+  }
 }
