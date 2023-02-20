@@ -4,7 +4,7 @@ import {
   codingSeries,
   pinList, stateNumbers
 }
-  from './helpers'
+  from './helpers.js'
 
 const MIN_STATE_NUM = 1;
 const MAX_STATE_NUM = 38;
