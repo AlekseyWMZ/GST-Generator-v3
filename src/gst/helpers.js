@@ -1,4 +1,4 @@
-import { faker } from "@faker-js/faker";
+import { faker } from 'https://cdn.skypack.dev/@faker-js/faker';
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
