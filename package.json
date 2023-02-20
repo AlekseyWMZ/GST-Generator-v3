@@ -24,6 +24,7 @@
     "@faker-js/faker": "^7.6.0",
     "@vitejs/plugin-react": "^3.1.0",
     "bootstrap": "^5.2.3",
+    "faker": "^6.6.6",
     "solid-headless": "0.13.1",
     "solid-js": "^1.6.10",
     "tailwindcss": "^3.2.6"
