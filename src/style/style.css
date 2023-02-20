@@ -389,12 +389,11 @@ td button {
     user-select         : auto;
     transition          : all 150ms;
     text-align          : right;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid #d1d3d4;
+    border              : none;
+    border-bottom       : 1px solid #d1d3d4;
+    background          : transparent;
 
 }
-
 
 
 table thead td {
@@ -404,9 +403,9 @@ table thead td {
 }
 
 table thead th {
-    height: 10px;
     font-size        : 18px;
     font-weight      : 400;
+    height           : 10px;
     padding          : 15px;
     text-align       : left;
     color            : #fff;
@@ -415,7 +414,7 @@ table thead th {
 }
 
 table tbody tr {
-    transition : all 0.2s ease-in-out;
+    transition    : all 0.2s ease-in-out;
 
     border-bottom : 1px solid #d1d3d4;
 }

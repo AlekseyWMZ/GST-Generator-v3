@@ -47,10 +47,9 @@ function validatePan(customPanInput) {
 generateButton.onclick = function() {
   let panInputValue;
   let stateSelectValue;
-  let history = document.getElementById("gst-history-content");
+
   let tbody = document.querySelector("tbody tr");
-  let pinCell = document.querySelector("th[content=\"pin\"]");
-  let stateCell = document.querySelector("th[content=\"state\"]");
+
 
   customPanCheckbox.checked===false ? panInputValue = "" : panInputValue = customPanInput.value;
   stateCheckbox.checked===false ? stateSelectValue = "00" : stateSelectValue = stateSelect.value;
@@ -91,14 +90,14 @@ generateButton.onclick = function() {
 </tr>`;
 
   let gstValue = document.querySelector("tbody tr td");
-  const copyContent = async () => {
-    try {
-      await navigator.clipboard.writeText(gstValue.textContent);
-      console.log("Content copied to clipboard");
-    } catch (err) {
-      console.error("Failed to copy: ", err);
-    }
-  };
+  // const copyContent = async () => {
+  //   try {
+  //     await navigator.clipboard.writeText(gstValue.textContent);
+  //     console.log("Content copied to clipboard");
+  //   } catch (err) {
+  //     console.error("Failed to copy: ", err);
+  //   }
+  // };
 
   gstValue.addEventListener("copy", function(event) {
     event.preventDefault();
