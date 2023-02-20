@@ -13,8 +13,8 @@ const MAX_STATE_NUM = 38;
 
 function generateGst(customPAN, customState) {
   const pan = generatePAN(customPAN)
-  /* Generation of random state code and 13th GST number char */
 
+  /* Generation of random state code and 13th GST number char */
   const stateCode = customState === '00' ? getRandomInt(MIN_STATE_NUM, MAX_STATE_NUM).toString().padStart(2, '0') : customState
   const entityNumber = getRandomInt(1, 9).toString()
 

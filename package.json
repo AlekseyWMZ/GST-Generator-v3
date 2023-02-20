@@ -31,5 +31,8 @@
   "private": true,
   "publishConfig": {
     "access": "restricted"
-  }
+  },
+  "type": "module"
+
+
 }

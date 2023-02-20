@@ -1,7 +1,5 @@
-
-
 @font-face {
-font-family : 'Satoshi Medium';
+    font-family : 'Satoshi Medium';
     src         : url('../assets/Satoshi-Medium.otf');
 }
 
@@ -30,32 +28,31 @@ fieldset {
 }
 
 h1 {
-    font-family : 'Helvetica Neue', sans-serif;
-    font-size : 45px;
-    font-weight : lighter;
-    letter-spacing : -1px;
-    color : white;
-    margin: 0 auto;
-  display: flow;
-    align-items: center;
-    position: relative;
-  justify-content: center;
-    padding: 10px;
-    bottom: 40px;
+    font-family     : 'Helvetica Neue', sans-serif;
+    font-size       : 45px;
+    font-weight     : lighter;
+    position        : relative;
+    display         : flow;
+    align-items     : center;
+    justify-content : center;
+    margin          : 0 auto;
+    padding         : 10px;
+    letter-spacing  : -1px;
+    color           : white;
 
 
 }
 
 #description {
-    font-family : 'Helvetica Neue', sans-serif;
-    font-size : 15px;
-    font-weight : lighter;
+    font-family    : 'Helvetica Neue', sans-serif;
+    font-size      : 15px;
+    font-weight    : lighter;
+    display        : inline;
+    margin         : 0 auto;
     letter-spacing : -1px;
-    color : #111111;
-    font-palette : normal;
-    opacity: 0.2;
-    margin: 0 auto;
-  display: inline;
+    opacity        : 0.2;
+    color          : #111111;
+    font-palette   : normal;
 }
 
 body {
@@ -63,9 +60,8 @@ body {
     overflow              : auto;
     /* 	height: 100%; */
     height                : 10px;
-margin: 0 auto;
-    padding: 0;
-    ;
+    margin                : 0 auto;
+    padding               : 0;;
     background            : url('../assets/bg.png') no-repeat center center fixed;
     background-color      : #1c4956;
     background-position   : top;
@@ -73,7 +69,6 @@ margin: 0 auto;
     background-blend-mode : soft-light;
 
 }
-
 
 
 .custom-pan {
@@ -182,7 +177,7 @@ margin: 0 auto;
     outline      : none;
 }
 
-.state {
+fieldset .state {
     position         : relative;
     display          : flex;
     overflow-y       : hidden;
@@ -264,6 +259,12 @@ margin: 0 auto;
     outline      : none;
 }
 
+.state #state-select:visited {
+    transition   : 0.3s;
+    border-color : #6ec75c;
+    outline      : none;
+}
+
 
 #generate-button {
     font-family         : expo-brand-demi, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -291,27 +292,27 @@ margin: 0 auto;
     vertical-align      : baseline;
     white-space         : nowrap;
     text-decoration     : none;
-    color               : #fff;
+    color               : #ffffff;
     border-width        : 0;
     border-radius       : 8px;
     outline             : none;
-    background-color    : #7996b4;
+    background-color    : #394974;
     box-shadow          : 0 10px 20px rgba(0, 0, 0, .1), 0 3px 6px rgba(0, 0, 0, .05);
     touch-action        : manipulation;
 }
 
 #generate-button:hover {
-    opacity    : 0.5;
-    box-shadow : rgba(0, 1, 0, .2) 0 2px 8px;
+    transition       : 0.1s;
+    background-color : #3d3dbb;
+
+    box-shadow       : rgba(0, 1, 0, .2) 0 2px 8px;
 }
 
-#generate-button:active {
-    outline : 0;
 
-}
-
-#generate-button:focus {
-
+#generate-button:active:after {
+    transition : 0.3s;
+    color      : #ffffff;
+    outline    : 0;
 }
 
 #generated-gst-history {
@@ -339,39 +340,127 @@ margin: 0 auto;
 
 }
 
-.gst {
+#generated-gst-history .gst {
     display          : flex;
     align-items      : center;
-    justify-content  : space-between;
-    height           : 50px;
-    margin-top       : 10px;
-    padding          : 5px 10px;
+    justify-content  : left;
+
+
     cursor           : pointer;
     border-bottom    : 2px solid #d1d3d4;
     background-color : transparent;
 }
 
 
-.gst:hover {
-    background : rgba(256 256 256 / 50%);
+table {
+    overflow        : hidden;
+    width           : 800px;
+    border-collapse : collapse;
+    box-shadow      : 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+table tbody {
+    background-color : rgba(255, 255, 255, 0.3);
+}
+
+table tbody td {
+    font-size : 18px;
+
+}
+
+td button {
+
+    font-size           : 18px;
+    line-height         : 1;
+    position            : inherit;
+    display             : flex;
+    overflow            : hidden;
+    align-content       : flex-end;
+    align-items         : flex-end;
+    align-self          : self-end;
+    flex-direction      : column;
+    justify-content     : center;
+    box-sizing          : border-box;
+    height              : 52px;
+
+    padding             : 0 32px;
+    cursor              : pointer;
+    -webkit-user-select : text;
+    user-select         : auto;
+    transition          : all 150ms;
+    text-align          : right;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #d1d3d4;
+
 }
 
 
-.gst span {
+
+table thead td {
+    padding          : 15px;
+    color            : #fff;
+    background-color : rgba(255, 255, 255, 0.2);
+}
+
+table thead th {
+    height: 10px;
+    font-size        : 18px;
+    font-weight      : 400;
+    padding          : 15px;
+    text-align       : left;
+    color            : #fff;
+    background-color : #7996b4;
+    background-image : linear-gradient(180deg, #394974 0%, #394974 74%);
+}
+
+table tbody tr {
+    transition : all 0.2s ease-in-out;
+
+    border-bottom : 1px solid #d1d3d4;
+}
+
+
+#gst-number {
     font-family : 'Poppins', sans-serif;
-    font-size   : 15px;
+    font-size   : 20px;
     font-weight : 400;
 }
 
-.gst button {
-    width            : 40px;
-    height           : 100%;
+
+#generated-gst-history {
+    position   : relative;
+    width      : 800px;
+    margin-top : 10px;
+}
+
+#gst-history-content {
+    position        : relative;
+    top             : 0;
+    left            : 0;
+    display         : inline;
+    overflow        : hidden;
+    align-content   : center;
+
+    align-items     : center;
+    align-self      : self-end;
+    flex-direction  : column;
+    justify-content : center;
+    width           : 100%;
+    height          : 100%;
+    background      : #ffffff;
+}
+
+#gst-number {
+
+    display          : flex;
+    align-items      : center;
+    justify-content  : space-between;
+
+
+    padding          : 5px 10px;
     cursor           : pointer;
-    color            : #ffffff;
-    border           : none;
-    border-radius    : 5px;
-    outline          : none;
-    background-color : #8052ec;
+    background-color : transparent;
 }
 
 .completed {
