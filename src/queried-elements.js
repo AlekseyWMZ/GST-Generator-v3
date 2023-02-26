@@ -4,10 +4,9 @@ const customPanInput = document.querySelector(".custom-pan #pan-input");
 const stateCheckbox = document.querySelector(".state #state-checkbox");
 const stateSelect = document.querySelector(".state #state-select");
 const gstHistory = document.querySelector("#generated-gst-history");
-
+const gst = document.getElementById("gst-number");
 const generateButton = document.getElementById("generate-button");
-
-
+const copyButton = document.querySelectorAll("button .copy-pin");
 
 
 export {
@@ -16,5 +15,7 @@ export {
   stateCheckbox,
   stateSelect,
   gstHistory,
-  generateButton
+  gst,
+  generateButton,
+  copyButton
 };

@@ -1,10 +1,11 @@
+import { faker } from '@faker-js/faker'
 import {
   generatePAN,
   getRandomInt,
   codingSeries,
   pinList, stateNumbers
 }
-  from './helpers.js'
+  from './helpers'
 
 const MIN_STATE_NUM = 1;
 const MAX_STATE_NUM = 38;
